@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { azulEscuro, cinzaClaro } from '../UI/variaveis';
+import { azulEscuro } from '../UI/variaveis';
 
 export const ContainerTotal = styled.main`
-    background-color: ${cinzaClaro};
+    background-color: white;
     width: 60vw;
     height: 70vh;
     border-radius: 20px;

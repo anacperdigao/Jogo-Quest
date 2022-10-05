@@ -11,7 +11,7 @@ export const ContainerEsquerdaPerguntas = styled.div`
 `;
 
 export const Titulo = styled.h1`
-    font-size: 26px;
+    font-size: 34px;
     color: ${azulEsverdeado};
     text-align: center;
 `;
