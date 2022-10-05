@@ -6,10 +6,10 @@ export const BotaoPrincipal = styled.button`
     padding: 10px;
     background-color: ${rosa};
     border: none;
-    width: 80px;
-    height: 80px;
+    width: 5em;
+    height: 3em;
     color: white;
-    border-radius: 50%;
+    border-radius: 20px;
     font-size: 25px;
     cursor: pointer;
 
@@ -18,3 +18,4 @@ export const BotaoPrincipal = styled.button`
         transform: scale(1.1);
     }
 `;
+
