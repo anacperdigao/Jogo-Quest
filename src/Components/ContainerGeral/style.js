@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { cinzaClaro } from '../UI/variaveis';
+import { azulEscuro, cinzaClaro } from '../UI/variaveis';
 
 export const ContainerTotal = styled.main`
     background-color: ${cinzaClaro};
@@ -8,4 +8,5 @@ export const ContainerTotal = styled.main`
     border-radius: 20px;
     display: grid;
     grid-template-columns: 40% 50% 10%;
+    border: 7px solid ${azulEscuro}
 `;
