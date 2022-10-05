@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ContainerGeral from './Components/ContainerGeral';
 import { GlobalStyle } from './Components/GlobalStyle';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <GlobalStyle />
       <div className="App">
+        <ContainerGeral />
       </div>
     </>
   );
