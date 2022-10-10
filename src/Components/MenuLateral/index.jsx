@@ -10,8 +10,10 @@ const MenuLateral = () => {
                 <S.HomeIcon />
             </Link>
 
-            <S.ReportAnalyticsIcon />
-
+            <Link to={'/tentativas'}>
+                <S.ReportAnalyticsIcon />
+            </Link>
+            
         </S.IconesAuxiliares>
     )
 };

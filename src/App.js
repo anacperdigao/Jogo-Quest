@@ -2,7 +2,9 @@ import React from 'react';
 import { GlobalStyle } from './Components/GlobalStyle';
 import Home from './pages/Home';
 import Cards from './pages/Cards';
+import Tentativas from './pages/Tentativas';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         
           <Route exact path='/' element={<Home />} />
           <Route exact path='/cards' element={<Cards />} />
+          <Route exact path='/tentativas' element={<Tentativas />} />
 
         </Routes>
       </Router>
