@@ -1,9 +1,9 @@
-import React from 'react';
 import * as S from "./style.js"
 
-const Botao = ({texto}) => {
+const Botao = (props) => {
+
     return(
-        <S.BotaoPrincipal>{texto}</S.BotaoPrincipal>
+        <S.BotaoPrincipal onClick={props.onClick}>{props.texto}</S.BotaoPrincipal>
     )
 };
 

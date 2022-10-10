@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { azulEscuro, azulEsverdeado, cinzaClaro } from '../UI/variaveis';
+import { azulEscuro, azulEsverdeado, cinzaClaro, rosa } from '../UI/variaveis';
 
 export const ContainerTotal = styled.main`
     background-color: white;
@@ -34,3 +34,17 @@ export const ContainerQuantPerguntas = styled.div`
     background-color: ${cinzaClaro};
     gap: 30px;
 `;
+
+export const InputQuantidade = styled.input`
+    padding: 10px 10px 10px 25px;
+    border: none;
+    width: 6em;
+    height: 2em;
+    border-radius: 20px;
+    font-size: 25px;
+    outline-color: ${rosa};
+    color: ${azulEscuro};
+    text-align: center;
+    cursor: pointer;
+    
+` 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from './Components/GlobalStyle';
 import Home from './pages/Home';
+import Cards from './pages/Cards';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
@@ -13,6 +14,7 @@ function App() {
         <Routes>
         
           <Route exact path='/' element={<Home />} />
+          <Route exact path='/cards' element={<Cards />} />
 
         </Routes>
       </Router>
