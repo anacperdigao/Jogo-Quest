@@ -34,6 +34,3 @@ export const ContainerQuantPerguntas = styled.div`
     background-color: ${cinzaClaro};
     gap: 30px;
 `;
-
-export const ContainerComecar = styled(ContainerQuantPerguntas)`
-`;

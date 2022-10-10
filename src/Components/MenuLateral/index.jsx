@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from "./style.js"
 
-const ContainerAuxiliar = () => {
+const MenuLateral = () => {
     return(
         <S.IconesAuxiliares>
             <S.HomeIcon />
@@ -10,4 +10,4 @@ const ContainerAuxiliar = () => {
     )
 };
 
-export default ContainerAuxiliar;
+export default MenuLateral;

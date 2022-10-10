@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerAuxiliar from '../MenuFixo/index.jsx';
+import MenuLateral from '../MenuLateral/index.jsx';
 import Botao from '../Botao'
 import * as S from "./style.js"
 
@@ -16,7 +16,7 @@ const ContainerGeral = () => {
                 <Botao texto = "10" />
             </S.ContainerQuantPerguntas>
 
-            <ContainerAuxiliar />
+            <MenuLateral />
         </S.ContainerTotal>
     )
 };
