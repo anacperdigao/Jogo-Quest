@@ -1,14 +1,21 @@
 import React from 'react';
-import ContainerAuxiliar from '../ContainerAuxiliar/index.jsx';
-import ContainerDireita from '../ContainerDireita/index.jsx';
-import ContainerEsquerda from '../ContainerEsquerda/index.jsx';
+import ContainerAuxiliar from '../MenuFixo/index.jsx';
+import Botao from '../Botao'
 import * as S from "./style.js"
 
 const ContainerGeral = () => {
     return(
         <S.ContainerTotal>
-            <ContainerEsquerda />
-            <ContainerDireita />
+            <S.ContainerEsquerdaPerguntas>
+                <S.Titulo>Quantas perguntas você deseja responder?</S.Titulo>
+            </S.ContainerEsquerdaPerguntas>
+
+            <S.ContainerQuantPerguntas>    
+                <Botao texto = "2" />
+                <Botao texto = "5" />
+                <Botao texto = "10" />
+            </S.ContainerQuantPerguntas>
+
             <ContainerAuxiliar />
         </S.ContainerTotal>
     )
