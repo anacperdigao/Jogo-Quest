@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { azulEscuro, azulEsverdeado, cinzaClaro } from "../../Components/UI/variaveis";
+import { azulEscuro, azulEsverdeado, branco, cinzaClaro, rosa } from "../../Components/UI/variaveis";
 
 
 export const Cards = styled.div`
@@ -24,7 +24,7 @@ export const ContainerTotal = styled.main`
     border: 7px solid ${azulEscuro}
 `;
 
-export const ContainerEsquerdaPerguntas = styled.div`
+export const ContainerPerguntas = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +38,7 @@ export const Titulo = styled.h1`
     text-align: center;
 `;
 
-export const ContainerQuantPerguntas = styled.div`
+export const ContainerRespostas = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,3 +47,29 @@ export const ContainerQuantPerguntas = styled.div`
     background-color: ${cinzaClaro};
     gap: 30px;
 `;
+
+export const OpcoesRespostas = styled.fieldset`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: none;
+    margin: 30px 0px;
+
+`
+
+export const LabelOpcoes = styled.label`
+    padding: 10px;
+    border: none;
+    width: 350px;
+    height: 2em;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: ${branco};
+    color: ${rosa};    
+    border: none; 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+`

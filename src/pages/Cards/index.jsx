@@ -10,22 +10,20 @@ function Cards() {
     <S.Cards>
         <S.ContainerTotal>
 
-            <S.ContainerEsquerdaPerguntas>
+            <S.ContainerPerguntas>
                 <S.Titulo>Pergunta 1</S.Titulo>
-            </S.ContainerEsquerdaPerguntas>
+            </S.ContainerPerguntas>
 
-            <S.ContainerQuantPerguntas>
-                <label>Resposta 1</label>
-                <input type='radio'></input>
+            <S.ContainerRespostas>
+                <S.OpcoesRespostas>
+                    <S.LabelOpcoes for='resposta1'><input id='resposta1' type='radio' name='resposta'></input>Resposta 1</S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta2'><input id='resposta2' type='radio' name='resposta'></input>Resposta 2</S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta3'><input id='resposta3' type='radio' name='resposta'></input>Resposta 3</S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input>Resposta 3</S.LabelOpcoes>
+                </S.OpcoesRespostas>
 
-                <label>Resposta 2</label>
-                <input type='radio'></input>
-                
-                <label>Resposta 3</label>
-                <input type='radio'></input>
-                    
-                <Botao texto = "Começar" />
-            </S.ContainerQuantPerguntas>
+                <Botao texto = "Próxima >" />
+            </S.ContainerRespostas>
             
             <MenuLateral />
 
