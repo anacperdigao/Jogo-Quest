@@ -43,7 +43,7 @@ function Home() {
 
             <S.ContainerQuantPerguntas>
                 <Link to={'/cards'}> 
-                    <Botao texto = "Sim" />
+                  <Botao texto = "Sim" />
                 </Link>
                 <BotaoSecundario onClick = {aoClicarNao} texto = "Não" />
             </S.ContainerQuantPerguntas>
@@ -53,7 +53,7 @@ function Home() {
           <MenuLateral />
 
         </S.ContainerTotal>
-        
+
       </S.Home>
   )
 };

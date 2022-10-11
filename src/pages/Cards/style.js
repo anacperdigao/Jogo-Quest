@@ -72,4 +72,5 @@ export const LabelOpcoes = styled.label`
     display: flex;
     justify-content: left;
     align-items: center;
+    gap: 5px;
 `
