@@ -31,7 +31,7 @@ const ContainerGeral = ({principal}) => {
                 </S.ContainerEsquerdaPerguntas>
 
                 <S.ContainerQuantPerguntas>
-                    <S.InputQuantidade placeholder='Ex.: 5' type='number'></S.InputQuantidade>    
+                    <S.InputQuantidade placeholder='Ex.: 5' type='number' />   
                     <Botao onClick = {aoClicarComecar} texto = "Começar" />
                 </S.ContainerQuantPerguntas>
             </>
