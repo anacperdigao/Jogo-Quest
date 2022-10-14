@@ -10,14 +10,27 @@ function Home() {
 
   const [aoComecar, setAoComecar] = useState(true);
 
-  const aoClicarComecar = () => {
-      setAoComecar(false);
-    };
 
-  const aoClicarNao = () => {
-      setAoComecar(true);
-  }; 
+//----- Aqui é o botao de start que eu devo armazenar o numero de questoes do input 
+  const handleStart = () => {
+    setAoComecar(false);
+    setNumeroDeQuestoes(numeroDeQuestoes) //------ Aqui foi onde de fato eu armazenei o input em numeroDeQuestoes
+  };
 
+
+//----- Aqui é o botao cancel que eu apago o armazenamento do input e volto a tela  
+  const handleCancel = () => {
+    setAoComecar(true);
+}; 
+
+
+//----- Aqui é o input onde o usuario digita o numero de questoes
+  const [numeroDeQuestoes, setNumeroDeQuestoes] = useState();
+
+  const handleChange = (evento) => {
+    setNumeroDeQuestoes(evento.target.value)
+  }
+  
   
   return (
       <S.Home>
@@ -31,21 +44,21 @@ function Home() {
             </S.ContainerEsquerdaPerguntas>
 
             <S.ContainerQuantPerguntas>
-                <S.InputQuantidade placeholder='Ex.: 5' type='number' />   
-                <Botao onClick = {aoClicarComecar} texto = "Começar" />
+                <S.InputQuantidade onChange={handleChange} placeholder='Ex.: 5' type='number'  />   
+                <Botao onClick = {handleStart} texto = "Começar" />
             </S.ContainerQuantPerguntas>
           </>
           :
           <>
             <S.ContainerEsquerdaPerguntas>
-                <S.Titulo>Você tem certeza?</S.Titulo>
+                <S.Titulo>Oba! Você digitou {numeroDeQuestoes} questões. Podemos continuar?</S.Titulo>
             </S.ContainerEsquerdaPerguntas>
 
             <S.ContainerQuantPerguntas>
                 <Link to={'/cards'}> 
                   <Botao texto = "Sim" />
                 </Link>
-                <BotaoSecundario onClick = {aoClicarNao} texto = "Não" />
+                <BotaoSecundario onClick = {handleCancel} texto = "Não" />
             </S.ContainerQuantPerguntas>
           </>
           }

@@ -33,7 +33,7 @@ export const ContainerPerguntas = styled.div`
 `;
 
 export const Titulo = styled.h1`
-    font-size: 34px;
+    font-size: 24px;
     color: ${azulEsverdeado};
     text-align: center;
 `;
