@@ -55,7 +55,10 @@ function Home() {
             </S.ContainerEsquerdaPerguntas>
 
             <S.ContainerQuantPerguntas>
-                <Link to={'/cards'}> 
+                <Link 
+                  to = {'/cards'}
+                  state = {{numeroDeQuestoes: numeroDeQuestoes}}
+                > 
                   <Botao texto = "Sim" />
                 </Link>
                 <BotaoSecundario onClick = {handleCancel} texto = "Não" />

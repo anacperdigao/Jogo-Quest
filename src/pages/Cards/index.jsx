@@ -3,19 +3,26 @@ import MenuLateral from '../../Components/MenuLateral/index.jsx';
 import Botao from '../../Components/Botao';
 import api from '../../api/api';
 import * as S from "./style.js"
+import { useLocation } from 'react-router-dom';
 
 
 function Cards() {
 
+//----- Aqui eu recuperei a variável com o números de questões   
+    const { state } = useLocation()
+    const numeroDeQuestoes = state.numeroDeQuestoes
+    console.log(numeroDeQuestoes)
+
+//----- Aqui vou consumir a API
     const [dadosApi, setDadosApi] = useState();
 
-//Vou precisar fazer o amount de forma dinamica
     useEffect(() => {
         api
-            .get("/api.php?amount=1&type=multiple")
+            .get(`/api.php?amount=${numeroDeQuestoes}&type=multiple`)
             .then((response) => setDadosApi(response.data.results[0]))           
     }, []);
 
+ 
 
   return (
     <S.Cards>
@@ -44,3 +51,7 @@ function Cards() {
 }
 
 export default Cards;
+
+/*
+
+ */
