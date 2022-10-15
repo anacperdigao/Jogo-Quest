@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
 
+//----- Eu uso esse estado para transitar os elementos mostrados da pagina de acordo com cliques dos botoes  
   const [aoComecar, setAoComecar] = useState(true);
 
 

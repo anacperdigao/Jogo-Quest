@@ -8,10 +8,10 @@ import { useLocation } from 'react-router-dom';
 
 function Cards() {
 
-//----- Aqui eu recuperei a variável com o números de questões   
+//----- Aqui eu recuperei a variável com o números de questões da outra pagina  
     const { state } = useLocation()
     const numeroDeQuestoes = state.numeroDeQuestoes
-    console.log(numeroDeQuestoes)
+
 
 //----- Aqui vou consumir a API
     const [dadosApi, setDadosApi] = useState();
@@ -22,7 +22,17 @@ function Cards() {
             .then((response) => setDadosApi(response.data.results[0]))           
     }, []);
 
- 
+
+//----- Aqui vou formatar o texto que está vindo da API
+
+
+//----- Aqui vou controlar o numero do indice que vai mudar com o clique do botao  
+    const handleNext = () => {
+        for(let indice = 0; indice <= (numeroDeQuestoes - 1); indice++){
+            console.log(indice)           
+        }
+    }
+
 
   return (
     <S.Cards>
@@ -40,7 +50,7 @@ function Cards() {
                     <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input>{dadosApi?.correct_answer}</S.LabelOpcoes>
                 </S.OpcoesRespostas>
 
-                <Botao texto = "Próxima >" />
+                <Botao onClick = {handleNext} texto = "Próxima >" />
             </S.ContainerRespostas>
             
             <MenuLateral />
