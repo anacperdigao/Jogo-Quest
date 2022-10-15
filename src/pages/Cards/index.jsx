@@ -19,17 +19,22 @@ function Cards() {
     useEffect(() => {
         api
             .get(`/api.php?amount=${numeroDeQuestoes}&type=multiple`)
-            .then((response) => setDadosApi(response.data.results[0]))           
+            .then((response) => setDadosApi(response.data.results))       
     }, []);
 
 
 //----- Aqui vou formatar o texto que está vindo da API
 
 
-//----- Aqui vou controlar o numero do indice que vai mudar com o clique do botao  
+
+//----- Aqui vou controlar o numero do indice que vai mudar com o clique do botao
+    const [indice, setIndice] = useState(1);
+
     const handleNext = () => {
-        for(let indice = 0; indice <= (numeroDeQuestoes - 1); indice++){
-            console.log(indice)           
+        if (indice <= (numeroDeQuestoes - 1)) {
+            setIndice(indice + 1)
+            //setDadosApi(dadosApi[indice])
+            console.log(dadosApi[indice])            
         }
     }
 
@@ -37,17 +42,17 @@ function Cards() {
   return (
     <S.Cards>
         <S.ContainerTotal>
-
+            
             <S.ContainerPerguntas>
                 <S.Titulo>{dadosApi?.question}</S.Titulo>
             </S.ContainerPerguntas>
 
             <S.ContainerRespostas>
                 <S.OpcoesRespostas>
-                    <S.LabelOpcoes for='resposta1'><input id='resposta1' type='radio' name='resposta'></input>{dadosApi?.incorrect_answers[0]}</S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta2'><input id='resposta2' type='radio' name='resposta'></input>{dadosApi?.incorrect_answers[1]}</S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta3'><input id='resposta3' type='radio' name='resposta'></input>{dadosApi?.incorrect_answers[2]}</S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input>{dadosApi?.correct_answer}</S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta1'><input id='resposta1' type='radio' name='resposta'></input></S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta2'><input id='resposta2' type='radio' name='resposta'></input></S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta3'><input id='resposta3' type='radio' name='resposta'></input></S.LabelOpcoes>
+                    <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input></S.LabelOpcoes>
                 </S.OpcoesRespostas>
 
                 <Botao onClick = {handleNext} texto = "Próxima >" />
@@ -63,5 +68,7 @@ function Cards() {
 export default Cards;
 
 /*
-
+{dadosApi?.question}
+{dadosApi?.incorrect_answers[0]}
+{dadosApi?.correct_answer}
  */
