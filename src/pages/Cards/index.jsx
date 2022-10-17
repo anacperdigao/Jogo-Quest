@@ -14,12 +14,17 @@ function Cards() {
 
 
 //----- Aqui vou consumir a API
-    const [dadosApi, setDadosApi] = useState();
+    const [dadosApi, setDadosApi] = useState({});
 
-    useEffect(() => {
-        api
-            .get(`/api.php?amount=${numeroDeQuestoes}&type=multiple`)
-            .then((response) => setDadosApi(response.data.results))       
+    useEffect( () => {
+        const fetchData = async () => {
+            const {
+                data: {results},
+            } = await api.get(`/api.php?amount=${numeroDeQuestoes}&type=multiple`)
+            setDadosApi(results[0])
+        }
+        fetchData()
+
     }, []);
 
 
@@ -31,13 +36,15 @@ function Cards() {
     const [indice, setIndice] = useState(1);
 
     const handleNext = () => {
+
         if (indice <= (numeroDeQuestoes - 1)) {
             setIndice(indice + 1)
-            //setDadosApi(dadosApi[indice])
-            console.log(dadosApi[indice])            
+            setDadosApi(dadosApi[indice])
+
+            console.log(dadosApi)
+            console.log(dadosApi[indice])           
         }
     }
-
 
   return (
     <S.Cards>
