@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuLateral from '../../Components/MenuLateral/index.jsx';
 import Botao from '../../Components/Botao';
 import api from '../../api/api';
@@ -14,21 +14,23 @@ function Cards() {
 
 
 //----- Aqui vou consumir a API
-    const [dadosApi, setDadosApi] = useState({});
+    const [dadosApi, setDadosApi] = useState([]);
 
     useEffect( () => {
-        const fetchData = async () => {
-            const {
-                data: {results},
-            } = await api.get(`/api.php?amount=${numeroDeQuestoes}&type=multiple`)
-            setDadosApi(results[0])
-        }
-        fetchData()
+        api
+            .get(`/api/questions?limit=${numeroDeQuestoes}`)
+            .then((response) => {
+                console.log(response.data); 
+                setDadosApi(response.data); 
+            })
+            .catch((erro) => {console.log(`Ops! Ocorreu um erro: ${erro}`)})
+            console.log(dadosApi)
 
     }, []);
 
 
 //----- Aqui vou formatar o texto que está vindo da API
+
 
 
 
@@ -39,10 +41,8 @@ function Cards() {
 
         if (indice <= (numeroDeQuestoes - 1)) {
             setIndice(indice + 1)
-            setDadosApi(dadosApi[indice])
-
-            console.log(dadosApi)
-            console.log(dadosApi[indice])           
+            //setDadosApi(dadosApi[indice])
+            console.log(indice)           
         }
     }
 
@@ -51,7 +51,7 @@ function Cards() {
         <S.ContainerTotal>
             
             <S.ContainerPerguntas>
-                <S.Titulo>{dadosApi?.question}</S.Titulo>
+                <S.Titulo>question</S.Titulo>
             </S.ContainerPerguntas>
 
             <S.ContainerRespostas>
