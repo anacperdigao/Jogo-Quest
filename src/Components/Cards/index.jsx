@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import MenuLateral from '../../Components/MenuLateral/index.jsx';
-import Botao from '../../Components/Botao';
 import api from '../../api/api';
 import * as S from "./style.js"
 import { useLocation } from 'react-router-dom';
@@ -62,11 +60,9 @@ function Cards() {
                     <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input></S.LabelOpcoes>
                 </S.OpcoesRespostas>
 
-                <Botao onClick = {handleNext} texto = "Próxima >" />
+                <S.BotaoPrincipal onClick = {handleNext}>Próxima</S.BotaoPrincipal>
             </S.ContainerRespostas>
             
-            <MenuLateral />
-
         </S.ContainerTotal>
     </S.Cards>
   );

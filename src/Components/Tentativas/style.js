@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { azulEscuro, azulEsverdeado, cinzaClaro, rosa } from '../../Components/UI/variaveis';
+import { azulEscuro, azulEsverdeado, branco, cinzaClaro, rosa } from "../UI/variaveis";
 
 
-export const Home = styled.div`
+export const Tentativas = styled.div`
     background-color: #F78672;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +24,7 @@ export const ContainerTotal = styled.main`
     border: 7px solid ${azulEscuro}
 `;
 
-export const ContainerEsquerdaPerguntas = styled.div`
+export const ContainerPerguntas = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +38,7 @@ export const Titulo = styled.h1`
     text-align: center;
 `;
 
-export const ContainerQuantPerguntas = styled.div`
+export const ContainerRespostas = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,16 +48,24 @@ export const ContainerQuantPerguntas = styled.div`
     gap: 30px;
 `;
 
-export const InputQuantidade = styled.input`
-    padding: 10px 10px 10px 25px;
+export const BotaoPrincipal = styled.button`
+    padding: 10px;
     border: none;
     width: 6em;
     height: 2em;
     border-radius: 20px;
     font-size: 25px;
-    outline-color: ${rosa};
-    color: ${azulEscuro};
-    text-align: center;
-    cursor: pointer;
+    background-color: ${rosa};
+    color: ${branco};    
+    border: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-` 
+    cursor: pointer;
+
+    :hover{
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+`;
