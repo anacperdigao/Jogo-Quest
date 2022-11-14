@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { QuizContext } from '../../context/quiz.js';
 import * as S from "./style.js";
 
 
 function Home() {
 
   const [aoComecar, setAoComecar] = useState(true);
-  const [numeroDeQuestoes, setNumeroDeQuestoes] = useState();
 
+  const [quizState, dispatch, numeroDeQuestoes, setNumeroDeQuestoes] = useContext(QuizContext)
 
   const handleCancel = () => {
     setAoComecar(true)
     setNumeroDeQuestoes(0)
-}; 
+  }; 
 
   
   return (
@@ -42,7 +43,7 @@ function Home() {
         </S.ContainerEsquerdaPerguntas>
 
         <S.ContainerQuantPerguntas>
-            <S.BotaoPrincipal>Sim</S.BotaoPrincipal>
+            <S.BotaoPrincipal onClick={() => dispatch({type:'changeState'})}>Sim</S.BotaoPrincipal>
             <S.BotaoSecundario onClick = {handleCancel}>Não</S.BotaoSecundario>
         </S.ContainerQuantPerguntas>
       </>
