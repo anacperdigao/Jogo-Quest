@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import api from '../../api/api';
 import * as S from "./style.js"
-import { useLocation } from 'react-router-dom';
+import { QuizContext } from '../../context/quiz';
 
 
 function Cards() {
 
-//----- Aqui eu recuperei a variável com o números de questões da outra pagina  
-    const { state } = useLocation()
-    const numeroDeQuestoes = state.numeroDeQuestoes
+    const [quizState, dispatch, numeroDeQuestoes, setNumeroDeQuestoes] = useContext(QuizContext)
 
 
 //----- Aqui vou consumir a API
