@@ -11,6 +11,11 @@ export const ContainerTotal = styled.div`
     display: grid;
     grid-template-columns: 40% 50% 10%;
     border: 7px solid ${azulEscuro};
+
+    @media screen and (max-width: 480px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 40% 50% 10%;
+    }
 `;
 
 export const ContainerEsquerdaPerguntas = styled.div`
@@ -25,6 +30,10 @@ export const Titulo = styled.h1`
     font-size: 34px;
     color: ${azulEsverdeado};
     text-align: center;
+
+    @media screen and (max-width: 480px){
+        font-size: 28px;
+    }
 `;
 
 export const ContainerQuantPerguntas = styled.div`

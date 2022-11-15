@@ -3,18 +3,6 @@ import { azulEscuro, azulEsverdeado, branco, cinzaClaro, rosa } from "../UI/vari
 import { FaHome } from "react-icons/fa"
 
 
-export const Tentativas = styled.div`
-    background-color: #F78672;
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 export const ContainerTotal = styled.main`
     background-color: white;
     width: 60vw;
@@ -22,7 +10,12 @@ export const ContainerTotal = styled.main`
     border-radius: 20px;
     display: grid;
     grid-template-columns: 40% 50% 10%;
-    border: 7px solid ${azulEscuro}
+    border: 7px solid ${azulEscuro};
+
+    @media screen and (max-width: 480px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 40% 50% 10%;
+    }
 `;
 
 export const ContainerPerguntas = styled.div`
@@ -37,6 +30,10 @@ export const Titulo = styled.h1`
     font-size: 34px;
     color: ${azulEsverdeado};
     text-align: center;
+
+    @media screen and (max-width: 480px){
+        font-size: 28px;
+    }
 `;
 
 export const ContainerRespostas = styled.div`

@@ -24,22 +24,20 @@ function Tentativas() {
 
 
   return (
-    <S.Tentativas>
-        <S.ContainerTotal>
+    <S.ContainerTotal>
 
-            <S.ContainerPerguntas>
-                <S.Titulo>Tentativas Anteriores</S.Titulo>
-            </S.ContainerPerguntas>
+        <S.ContainerPerguntas>
+            <S.Titulo>Tentativas Anteriores</S.Titulo>
+        </S.ContainerPerguntas>
 
-            <S.ContainerRespostas>
-                <p>Score: 0 de 0</p>
-                <S.BotaoPrincipal>Apagar</S.BotaoPrincipal>
-            </S.ContainerRespostas>
+        <S.ContainerRespostas>
+            <p>Score: 0 de 0</p>
+            <S.BotaoPrincipal>Apagar</S.BotaoPrincipal>
+        </S.ContainerRespostas>
 
-            <S.HomeIcon onClick={() => setGameStages(stages[0])} />
+        <S.HomeIcon onClick={() => setGameStages(stages[0])} />
 
-        </S.ContainerTotal>
-    </S.Tentativas>
+    </S.ContainerTotal>
   );
 }
 
