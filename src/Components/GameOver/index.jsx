@@ -25,6 +25,7 @@ const GameOver = () => {
     setNumeroDeQuestoes(0)
     setIndice(0)
     setDadosApi([])
+    setScore(0)
   }
 
 

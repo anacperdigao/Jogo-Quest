@@ -39,13 +39,10 @@ function Cards() {
 
 
     const handleOption = (evento) => {
+        if(respostaJaSelecionada) return //travei para nao marcar toda vez que clicar
+
         const opcaoMarcada = evento.target.innerHTML
         setRespostaJaSelecionada(true)
-        
-        // Preciso travar pra pessoa nao pontuar mais de uma vez
-        // if(respostaJaSelecionada){
-        //     setScore(parseInt(score) + 0)
-        // }
 
         if(opcaoMarcada === dadosApi[indice].correctAnswer){
             setScore(parseInt(score) + 1)
@@ -77,7 +74,7 @@ function Cards() {
                     )}  
                     
                 </S.OpcoesRespostas>
-                
+
             </S.ContainerRespostas>
 
             {respostaJaSelecionada && <S.ChevronRightIcon onClick={handleNext} />}
