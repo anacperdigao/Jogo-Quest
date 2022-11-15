@@ -1,4 +1,5 @@
-import React, { createContext, useReducer, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import api from "../api/api";
 
 //-------------- Criando o contexto
 
@@ -10,38 +11,37 @@ QuizContext.displayName = 'QuizContext'
 
 export const QuizProvider = ({children}) => {
 
-    const [numeroDeQuestoes, setNumeroDeQuestoes] = useState();
-    const [quizState, dispatch] = useReducer(quizReducer, initialState)
+    const stages = ['Start', 'Playing', 'End']
+    const [gameStages, setGameStages] = useState(stages[0])
+    const [numeroDeQuestoes, setNumeroDeQuestoes] = useState(0);
+    const [dadosApi, setDadosApi] = useState([]);
+    const [indice, setIndice] = useState(0)
+
+
+    useEffect( () => {
+        api
+            .get(`/api/questions?limit=${numeroDeQuestoes}`)
+            .then((response) => {
+                setDadosApi(response.data); 
+            })
+            .catch((erro) => {console.log(`Ops! Ocorreu um erro: ${erro}`)})
+    }, [numeroDeQuestoes]);
+
 
     return(
-        <QuizContext.Provider value={[quizState, dispatch, numeroDeQuestoes, setNumeroDeQuestoes]}>
+        <QuizContext.Provider 
+            value={[
+                numeroDeQuestoes, 
+                setNumeroDeQuestoes, 
+                dadosApi, 
+                setDadosApi,
+                stages,
+                gameStages,
+                setGameStages,
+                indice,
+                setIndice
+                ]}>
             {children}
         </QuizContext.Provider>
     )
-}
-
-
-//-------------- Criando o quizReducer
-
-const stages = ['Start', 'Playing', 'End']
-
-const initialState = {
-    gameStage: stages[0],
-}
-
-
-const quizReducer = (state, action) => {
-
-    switch(action.type){
-
-        case 'changeState':
-            return {
-                ...state,
-                gameStage: stages[1],
-            }
-
-
-        default:
-            return state;
-    }
 }
