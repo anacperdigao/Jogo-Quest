@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { QuizContext } from '../../context/quiz'
 import * as S from './style'
 import Trofeu from '../../assets/trophy-cup-svgrepo-com.svg'
-
 
 
 const GameOver = () => {
@@ -21,7 +20,7 @@ const GameOver = () => {
     setScore,
     respostaJaSelecionada,
     setRespostaJaSelecionada
-    ] = useContext(QuizContext)
+] = useContext(QuizContext)
 
 
   const handleReestart = () => {

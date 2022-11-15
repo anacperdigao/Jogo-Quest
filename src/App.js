@@ -3,9 +3,7 @@ import { GlobalStyle } from './Components/GlobalStyle';
 import Home from './Components/Home';
 import Cards from './Components/Cards';
 import GameOver from './Components/GameOver';
-import Tentativas from './Components/Tentativas';
 import { QuizContext } from './context/quiz';
-
 
 
 
@@ -25,7 +23,7 @@ function App() {
     setScore,
     respostaJaSelecionada,
     setRespostaJaSelecionada
-    ] = useContext(QuizContext)
+] = useContext(QuizContext)
 
   
   return (
@@ -36,7 +34,6 @@ function App() {
       { gameStages === 'Start' && <Home /> }
       { gameStages === 'Playing' && <Cards /> }
       { gameStages === 'End' && <GameOver /> }
-      { gameStages === 'Report' && <Tentativas /> }
 
     </div>
   );

@@ -21,15 +21,14 @@ function Home() {
     setScore,
     respostaJaSelecionada,
     setRespostaJaSelecionada
-] = useContext(QuizContext)
+  ] = useContext(QuizContext)
     
 
   const handleCancel = () => {
     setAoComecar(true)
     setNumeroDeQuestoes(0)
   }; 
-  
-  
+
 
   return (
 
@@ -67,8 +66,6 @@ function Home() {
         </S.ContainerQuantPerguntas>
       </>
       }
-
-      <S.ReportAnalyticsIcon onClick={() => setGameStages(stages[3])} />
 
     </S.ContainerTotal>
 

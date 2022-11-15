@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { azulEscuro, azulEsverdeado, branco, cinzaClaro, rosa } from '../UI/variaveis';
-import { TbReportAnalytics } from "react-icons/tb"
 
 
 export const ContainerTotal = styled.div`
@@ -57,6 +56,10 @@ export const InputQuantidade = styled.input`
     color: ${azulEscuro};
     text-align: center;
     cursor: pointer;
+
+    @media screen and (max-width: 480px){
+        padding: 10px 10px 10px 10px;
+    }
     
 ` 
 
@@ -102,16 +105,3 @@ export const BotaoSecundario = styled.button`
         transform: scale(1.1);
     }
 `;
-
-export const ReportAnalyticsIcon = styled(TbReportAnalytics)`
-    color: ${azulEscuro};
-    font-size: 35px;
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    cursor: pointer;
-
-    :hover{
-        transform: scale(1.1)
-    }
-`

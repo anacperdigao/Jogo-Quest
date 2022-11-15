@@ -24,7 +24,6 @@ function Cards() {
 
 
     const handleNext = () => {
-
         if(!dadosApi[indice+1]){
             setGameStages(stages[2])
         }
@@ -72,9 +71,7 @@ function Cards() {
                             key={opcao}>{opcao}
                         </S.Opcoes>
                     )}  
-                    
                 </S.OpcoesRespostas>
-
             </S.ContainerRespostas>
 
             {respostaJaSelecionada && <S.ChevronRightIcon onClick={handleNext} />}

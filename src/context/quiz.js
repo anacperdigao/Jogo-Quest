@@ -11,14 +11,14 @@ QuizContext.displayName = 'QuizContext'
 
 export const QuizProvider = ({children}) => {
 
-    const stages = ['Start', 'Playing', 'End', 'Report']
+    const stages = ['Start', 'Playing', 'End']
     const [gameStages, setGameStages] = useState(stages[0])
     const [numeroDeQuestoes, setNumeroDeQuestoes] = useState(0);
     const [dadosApi, setDadosApi] = useState([]);
     const [indice, setIndice] = useState(0)
     const [score, setScore] = useState(0)
     const [respostaJaSelecionada, setRespostaJaSelecionada] = useState(false)
-
+    
 
     useEffect( () => {
         api
@@ -26,18 +26,9 @@ export const QuizProvider = ({children}) => {
             .then((response) => {
                 setDadosApi(response.data); 
             })
-            .catch((erro) => {console.log(`Ops! Ocorreu um erro: ${erro}`)})
+            .catch((erro) => {alert(`Ops! Ocorreu um erro: ${erro}`)})
     }, [numeroDeQuestoes]);
-
-
-    // useEffect(() => {
-    //     localStorage.setItem('score', score)
-    //     localStorage.setItem('numeroDeQuestoes', numeroDeQuestoes)
-    //   },[score, numeroDeQuestoes])
-    
-    // // let scoreSaved = localStorage.getItem('score')
-    // //  = localStorage.getItem('numeroDeQuestoes')
-
+  
 
     return(
         <QuizContext.Provider 
@@ -54,8 +45,8 @@ export const QuizProvider = ({children}) => {
                 score,
                 setScore,
                 respostaJaSelecionada,
-                setRespostaJaSelecionada,
-                ]}>
+                setRespostaJaSelecionada
+            ]}>
             {children}
         </QuizContext.Provider>
     )
