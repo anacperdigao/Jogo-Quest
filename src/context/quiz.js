@@ -16,6 +16,8 @@ export const QuizProvider = ({children}) => {
     const [numeroDeQuestoes, setNumeroDeQuestoes] = useState(0);
     const [dadosApi, setDadosApi] = useState([]);
     const [indice, setIndice] = useState(0)
+    const [score, setScore] = useState(0)
+    const [respostaJaSelecionada, setRespostaJaSelecionada] = useState(false)
 
 
     useEffect( () => {
@@ -39,7 +41,11 @@ export const QuizProvider = ({children}) => {
                 gameStages,
                 setGameStages,
                 indice,
-                setIndice
+                setIndice,
+                score,
+                setScore,
+                respostaJaSelecionada,
+                setRespostaJaSelecionada
                 ]}>
             {children}
         </QuizContext.Provider>

@@ -15,9 +15,11 @@ function Cards() {
         setGameStages,
         indice,
         setIndice,
-        reorderAnswers
+        score,
+        setScore,
+        respostaJaSelecionada,
+        setRespostaJaSelecionada
     ] = useContext(QuizContext)
-
 
 
     const handleNext = () => {
@@ -28,13 +30,25 @@ function Cards() {
         setIndice(indice + 1)
     }
 
-    
+    console.log(dadosApi[indice])
     const arrayAnswers = [...dadosApi[indice].incorrectAnswers, dadosApi[indice].correctAnswer]
 
+    const handleOption = (evento) => {
+        const opcaoMarcada = evento.target.innerHTML
+        
+        // Preciso travar pra pessoa nao pontuar mais de uma vez
+        // if(respostaJaSelecionada){
+        //     setScore(parseInt(score) + 0)
+        // }
+
+        if(opcaoMarcada === dadosApi[indice].correctAnswer){
+            setScore(parseInt(score) + 1)
+            setRespostaJaSelecionada(true)
+        }
+    }
 
 
   return (
-    <S.Cards>
         <S.ContainerTotal>
             
             <S.ContainerPerguntas>
@@ -42,17 +56,27 @@ function Cards() {
             </S.ContainerPerguntas>
 
             <S.ContainerRespostas>
+                <S.Paragrafo>Pergunta {indice + 1} de {parseInt(numeroDeQuestoes)}</S.Paragrafo>
+
                 <S.OpcoesRespostas>
                     {arrayAnswers
                     .sort(() => Math.random() - 0.5)
-                    .map(opcao => <S.Opcoes key={opcao}>{opcao}</S.Opcoes>)}
+                    .map(opcao => 
+                        <S.Opcoes 
+                            className={` 
+                                ${respostaJaSelecionada && opcao === dadosApi[indice].correctAnswer ? 'correct' : ''}
+                                ${respostaJaSelecionada && opcao !== dadosApi[indice].correctAnswer ? 'incorrect' : ''}
+                                `} 
+                            onClick={handleOption} 
+                            key={opcao}>{opcao}
+                        </S.Opcoes>
+                    )}
                 </S.OpcoesRespostas>
 
                 <S.BotaoPrincipal onClick={handleNext}>Próxima</S.BotaoPrincipal>
             </S.ContainerRespostas>
             
         </S.ContainerTotal>
-    </S.Cards>
   );
 }
 
