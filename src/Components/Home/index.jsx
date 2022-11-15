@@ -7,14 +7,23 @@ function Home() {
 
   const [aoComecar, setAoComecar] = useState(true);
 
-  const [quizState, dispatch, numeroDeQuestoes, setNumeroDeQuestoes] = useContext(QuizContext)
+  const [ 
+    numeroDeQuestoes, 
+    setNumeroDeQuestoes, 
+    dadosApi, 
+    setDadosApi,
+    stages,
+    gameStages,
+    setGameStages] = useContext(QuizContext)
+    
 
   const handleCancel = () => {
     setAoComecar(true)
     setNumeroDeQuestoes(0)
   }; 
-
   
+  
+
   return (
 
     <S.ContainerTotal>
@@ -29,7 +38,6 @@ function Home() {
         <S.ContainerQuantPerguntas>
             <S.InputQuantidade 
               onChange={e => setNumeroDeQuestoes(e.target.value)} 
-              placeholder='Ex.: 5' 
               type='number' 
               value={numeroDeQuestoes} 
             />   
@@ -43,7 +51,7 @@ function Home() {
         </S.ContainerEsquerdaPerguntas>
 
         <S.ContainerQuantPerguntas>
-            <S.BotaoPrincipal onClick={() => dispatch({type:'changeState'})}>Sim</S.BotaoPrincipal>
+            <S.BotaoPrincipal onClick={() => setGameStages(stages[1])}>Sim</S.BotaoPrincipal>
             <S.BotaoSecundario onClick = {handleCancel}>Não</S.BotaoSecundario>
         </S.ContainerQuantPerguntas>
       </>

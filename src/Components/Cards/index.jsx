@@ -1,64 +1,54 @@
-import React, { useState, useEffect, useContext } from 'react';
-import api from '../../api/api';
+import React, { useContext } from 'react';
 import * as S from "./style.js"
 import { QuizContext } from '../../context/quiz';
 
 
 function Cards() {
 
-    const [quizState, dispatch, numeroDeQuestoes, setNumeroDeQuestoes] = useContext(QuizContext)
+    const [ 
+        numeroDeQuestoes, 
+        setNumeroDeQuestoes, 
+        dadosApi, 
+        setDadosApi,
+        stages,
+        gameStages,
+        setGameStages,
+        indice,
+        setIndice,
+        reorderAnswers
+    ] = useContext(QuizContext)
 
 
-//----- Aqui vou consumir a API
-    const [dadosApi, setDadosApi] = useState([]);
-
-    useEffect( () => {
-        api
-            .get(`/api/questions?limit=${numeroDeQuestoes}`)
-            .then((response) => {
-                console.log(response.data); 
-                setDadosApi(response.data); 
-            })
-            .catch((erro) => {console.log(`Ops! Ocorreu um erro: ${erro}`)})
-            console.log(dadosApi)
-
-    }, []);
-
-
-//----- Aqui vou formatar o texto que está vindo da API
-
-
-
-
-//----- Aqui vou controlar o numero do indice que vai mudar com o clique do botao
-    const [indice, setIndice] = useState(1);
 
     const handleNext = () => {
 
-        if (indice <= (numeroDeQuestoes - 1)) {
-            setIndice(indice + 1)
-            //setDadosApi(dadosApi[indice])
-            console.log(indice)           
+        if(!dadosApi[indice+1]){
+            setGameStages(stages[2])
         }
+        setIndice(indice + 1)
     }
+
+    
+    const arrayAnswers = [...dadosApi[indice].incorrectAnswers, dadosApi[indice].correctAnswer]
+
+
 
   return (
     <S.Cards>
         <S.ContainerTotal>
             
             <S.ContainerPerguntas>
-                <S.Titulo>question</S.Titulo>
+                <S.Titulo>{dadosApi[indice]?.question}</S.Titulo>
             </S.ContainerPerguntas>
 
             <S.ContainerRespostas>
                 <S.OpcoesRespostas>
-                    <S.LabelOpcoes for='resposta1'><input id='resposta1' type='radio' name='resposta'></input></S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta2'><input id='resposta2' type='radio' name='resposta'></input></S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta3'><input id='resposta3' type='radio' name='resposta'></input></S.LabelOpcoes>
-                    <S.LabelOpcoes for='resposta4'><input id='resposta4' type='radio' name='resposta'></input></S.LabelOpcoes>
+                    {arrayAnswers
+                    .sort(() => Math.random() - 0.5)
+                    .map(opcao => <S.Opcoes key={opcao}>{opcao}</S.Opcoes>)}
                 </S.OpcoesRespostas>
 
-                <S.BotaoPrincipal onClick = {handleNext}>Próxima</S.BotaoPrincipal>
+                <S.BotaoPrincipal onClick={handleNext}>Próxima</S.BotaoPrincipal>
             </S.ContainerRespostas>
             
         </S.ContainerTotal>

@@ -59,7 +59,7 @@ export const OpcoesRespostas = styled.fieldset`
 
 `
 
-export const LabelOpcoes = styled.label`
+export const Opcoes = styled.p`
     padding: 10px;
     border: none;
     width: 350px;

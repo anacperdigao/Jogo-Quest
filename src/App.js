@@ -10,16 +10,24 @@ import { QuizContext } from './context/quiz';
 
 function App() {
 
-  const [quizState, dispatch] = useContext(QuizContext)
+  const [ 
+    numeroDeQuestoes, 
+    setNumeroDeQuestoes, 
+    dadosApi, 
+    setDadosApi,
+    stages,
+    gameStages,
+    setGameStages] = useContext(QuizContext)
+
   
   return (
     <div className="App">
 
       <GlobalStyle />
 
-      { quizState.gameStage === 'Start' && <Home /> }
-      { quizState.gameStage === 'Playing' && <Cards /> }
-      { quizState.gameStage === 'End' && <GameOver /> }
+      { gameStages === 'Start' && <Home /> }
+      { gameStages === 'Playing' && <Cards /> }
+      { gameStages === 'End' && <GameOver /> }
       
 
     </div>
