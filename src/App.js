@@ -17,7 +17,14 @@ function App() {
     setDadosApi,
     stages,
     gameStages,
-    setGameStages] = useContext(QuizContext)
+    setGameStages,
+    indice,
+    setIndice,
+    score,
+    setScore,
+    respostaJaSelecionada,
+    setRespostaJaSelecionada
+    ] = useContext(QuizContext)
 
   
   return (
@@ -28,7 +35,6 @@ function App() {
       { gameStages === 'Start' && <Home /> }
       { gameStages === 'Playing' && <Cards /> }
       { gameStages === 'End' && <GameOver /> }
-      
 
     </div>
   );

@@ -14,7 +14,14 @@ function Home() {
     setDadosApi,
     stages,
     gameStages,
-    setGameStages] = useContext(QuizContext)
+    setGameStages,
+    indice,
+    setIndice,
+    score,
+    setScore,
+    respostaJaSelecionada,
+    setRespostaJaSelecionada
+] = useContext(QuizContext)
     
 
   const handleCancel = () => {
@@ -40,14 +47,18 @@ function Home() {
               onChange={e => setNumeroDeQuestoes(e.target.value)} 
               type='number' 
               value={numeroDeQuestoes} 
-            />   
-            <S.BotaoPrincipal onClick = {() => setAoComecar(false)}>Começar</S.BotaoPrincipal>
+            />
+            {numeroDeQuestoes <= 0 
+            ? <S.BotaoPrincipal>...</S.BotaoPrincipal>
+            : <S.BotaoPrincipal onClick = {() => setAoComecar(false)}>Começar</S.BotaoPrincipal>
+            }   
+            
         </S.ContainerQuantPerguntas>
       </>
       :
       <>
         <S.ContainerEsquerdaPerguntas>
-            <S.Titulo>Oba! Você digitou {numeroDeQuestoes} questões. Podemos continuar?</S.Titulo>
+            <S.Titulo>Oba!<br/> Você digitou {numeroDeQuestoes} questões. Podemos continuar?</S.Titulo>
         </S.ContainerEsquerdaPerguntas>
 
         <S.ContainerQuantPerguntas>
