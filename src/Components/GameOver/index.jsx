@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { QuizContext } from '../../context/quiz'
 import * as S from './style'
-import Trofeu from '../../assets/trofeu.png'
+import Trofeu from '../../assets/trophy-cup-svgrepo-com.svg'
 
 
 
