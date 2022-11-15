@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { azulEscuro, azulEsverdeado, bege, branco, cinzaClaro, laranja, rosa } from "../../Components/UI/variaveis";
-
+import { FaChevronRight } from "react-icons/fa"
 
 export const ContainerTotal = styled.main`
     background-color: white;
@@ -84,24 +84,17 @@ export const Opcoes = styled.p`
     color: ${branco}
 }
 `
-export const BotaoPrincipal = styled.button`
-    padding: 10px;
-    border: none;
-    width: 6em;
-    height: 2em;
-    border-radius: 20px;
-    font-size: 25px;
-    background-color: ${rosa};
-    color: ${branco};    
-    border: none; 
+
+
+export const ChevronRightIcon = styled(FaChevronRight)`
+    color: ${azulEscuro};
+    font-size: 35px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    align-self: center;
+    justify-self: center;
     cursor: pointer;
 
     :hover{
-        opacity: 0.9;
-        transform: scale(1.1);
+        transform: scale(1.1)
     }
-`;
+`

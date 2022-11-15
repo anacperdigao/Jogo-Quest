@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import * as S from "./style.js"
 import { QuizContext } from '../../context/quiz';
+
 
 
 function Cards() {
@@ -28,13 +29,18 @@ function Cards() {
             setGameStages(stages[2])
         }
         setIndice(indice + 1)
+        setRespostaJaSelecionada(false)
     }
 
-    console.log(dadosApi[indice])
-    const arrayAnswers = [...dadosApi[indice].incorrectAnswers, dadosApi[indice].correctAnswer]
+
+    const arrayReordered = useMemo(
+        () => [...dadosApi[indice].incorrectAnswers, dadosApi[indice].correctAnswer]
+        .sort(() => Math.random() - 0.5), [dadosApi, indice])
+
 
     const handleOption = (evento) => {
         const opcaoMarcada = evento.target.innerHTML
+        setRespostaJaSelecionada(true)
         
         // Preciso travar pra pessoa nao pontuar mais de uma vez
         // if(respostaJaSelecionada){
@@ -43,7 +49,6 @@ function Cards() {
 
         if(opcaoMarcada === dadosApi[indice].correctAnswer){
             setScore(parseInt(score) + 1)
-            setRespostaJaSelecionada(true)
         }
     }
 
@@ -59,31 +64,26 @@ function Cards() {
                 <S.Paragrafo>Pergunta {indice + 1} de {parseInt(numeroDeQuestoes)}</S.Paragrafo>
 
                 <S.OpcoesRespostas>
-                    {arrayAnswers
-                    .sort(() => Math.random() - 0.5)
+                    {arrayReordered
                     .map(opcao => 
                         <S.Opcoes 
                             className={` 
                                 ${respostaJaSelecionada && opcao === dadosApi[indice].correctAnswer ? 'correct' : ''}
                                 ${respostaJaSelecionada && opcao !== dadosApi[indice].correctAnswer ? 'incorrect' : ''}
                                 `} 
-                            onClick={handleOption} 
+                            onClick={handleOption}
                             key={opcao}>{opcao}
                         </S.Opcoes>
-                    )}
+                    )}  
+                    
                 </S.OpcoesRespostas>
-
-                <S.BotaoPrincipal onClick={handleNext}>Próxima</S.BotaoPrincipal>
+                
             </S.ContainerRespostas>
+
+            {respostaJaSelecionada && <S.ChevronRightIcon onClick={handleNext} />}
             
         </S.ContainerTotal>
   );
 }
 
 export default Cards;
-
-/*
-{dadosApi?.question}
-{dadosApi?.incorrect_answers[0]}
-{dadosApi?.correct_answer}
- */
