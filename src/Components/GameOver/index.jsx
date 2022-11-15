@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { QuizContext } from '../../context/quiz'
 import * as S from './style'
+import Trofeu from '../../assets/trofeu.png'
+
 
 
 const GameOver = () => {
@@ -16,8 +18,10 @@ const GameOver = () => {
     indice,
     setIndice,
     score,
-    setScore
-] = useContext(QuizContext)
+    setScore,
+    respostaJaSelecionada,
+    setRespostaJaSelecionada
+    ] = useContext(QuizContext)
 
 
   const handleReestart = () => {
@@ -27,13 +31,13 @@ const GameOver = () => {
     setDadosApi([])
     setScore(0)
   }
-
+  
 
   return (
     <S.ContainerTotal>
     
     <S.ContainerPerguntas>
-        <p>Imagem</p>
+        <S.Imagem src={Trofeu} alt="Trofeu" />
     </S.ContainerPerguntas>
 
     <S.ContainerRespostas>

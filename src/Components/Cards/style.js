@@ -32,8 +32,9 @@ export const ContainerRespostas = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: ${cinzaClaro};
+    max-width: 100%;
 `;
 
 export const Paragrafo = styled.p`
@@ -49,13 +50,14 @@ export const OpcoesRespostas = styled.div`
     gap: 20px;
     border: none;
     margin: 20px 0px;
+    width: 100%;
 
 `
 
 export const Opcoes = styled.p`
     padding: 15px;
     border: none;
-    width: 350px;
+    width: 100%;
     height: 3.5em;
     border-radius: 20px;
     font-size: 14px;

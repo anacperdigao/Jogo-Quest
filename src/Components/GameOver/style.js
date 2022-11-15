@@ -41,6 +41,7 @@ export const Paragrafo = styled.p`
     font-size: 24px;
     color: ${azulEsverdeado};
     font-weight: bold;
+    text-align: center;
 `
 
 export const OpcoesRespostas = styled.div`
@@ -97,3 +98,9 @@ export const BotaoPrincipal = styled.button`
         transform: scale(1.1);
     }
 `;
+
+export const Imagem = styled.img`
+    width: 50%;
+    height: 50%;
+
+`

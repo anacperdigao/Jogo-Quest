@@ -68,7 +68,7 @@ function Home() {
       </>
       }
 
-      <S.ReportAnalyticsIcon />
+      <S.ReportAnalyticsIcon onClick={() => setGameStages(stages[3])} />
 
     </S.ContainerTotal>
 

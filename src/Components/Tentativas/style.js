@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { azulEscuro, azulEsverdeado, branco, cinzaClaro, rosa } from "../UI/variaveis";
+import { FaHome } from "react-icons/fa"
 
 
 export const Tentativas = styled.div`
@@ -69,3 +70,16 @@ export const BotaoPrincipal = styled.button`
         transform: scale(1.1);
     }
 `;
+
+export const HomeIcon = styled(FaHome)`
+    color: ${azulEscuro};
+    font-size: 35px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+
+    :hover{
+        transform: scale(1.1)
+    }
+`

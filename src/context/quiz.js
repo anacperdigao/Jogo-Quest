@@ -11,7 +11,7 @@ QuizContext.displayName = 'QuizContext'
 
 export const QuizProvider = ({children}) => {
 
-    const stages = ['Start', 'Playing', 'End']
+    const stages = ['Start', 'Playing', 'End', 'Report']
     const [gameStages, setGameStages] = useState(stages[0])
     const [numeroDeQuestoes, setNumeroDeQuestoes] = useState(0);
     const [dadosApi, setDadosApi] = useState([]);
@@ -30,6 +30,15 @@ export const QuizProvider = ({children}) => {
     }, [numeroDeQuestoes]);
 
 
+    // useEffect(() => {
+    //     localStorage.setItem('score', score)
+    //     localStorage.setItem('numeroDeQuestoes', numeroDeQuestoes)
+    //   },[score, numeroDeQuestoes])
+    
+    // // let scoreSaved = localStorage.getItem('score')
+    // //  = localStorage.getItem('numeroDeQuestoes')
+
+
     return(
         <QuizContext.Provider 
             value={[
@@ -45,7 +54,7 @@ export const QuizProvider = ({children}) => {
                 score,
                 setScore,
                 respostaJaSelecionada,
-                setRespostaJaSelecionada
+                setRespostaJaSelecionada,
                 ]}>
             {children}
         </QuizContext.Provider>

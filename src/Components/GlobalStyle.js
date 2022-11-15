@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import { rosa } from './UI/variaveis';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -13,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background-color: #F78672;
+    background-color: ${rosa};
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;

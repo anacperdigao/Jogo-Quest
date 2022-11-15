@@ -4,6 +4,6 @@ export const azulEscuro = "#154A61";
 export const azulPiscina = "#92E1E2";
 export const azulEsverdeado = "#77B5A8";
 export const bege = "#F7CA90";
-export const rosa = "#F78672";
+export const rosa = "#D65663";
 export const laranja = "#E55315";
 export const branco = "white";
